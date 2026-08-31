@@ -16,21 +16,110 @@
             background-color: rgb(223, 213, 213);
             position: relative;
             left: 0px;
-            top: 50px;
+            top: 53px;
 
             width: 250px;
             height: 600px
         }
-        .wiki {
+        .home {
             position:relative;
             left: 270px;
-            top: -550px;
+            top: -547px;
             background-color: rgba(56, 51, 51, 0.164);
             width: 1050px;
             height: 600px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+        .section {
+               padding: 20px
+
+        }
+        .section.hidden{
+            display: none;
+        }
+        .btn {
+            height: 50px;
+            width: 200px;
+            position: relative;
+            left: 25px;
+            top: 20px;
+            background-color: rgba(240, 248, 255, 0);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        .rl {
+            height: 250px;
+            width: 280px;
+            position: relative;
+            left: 365px;
+            top: 10px       
+        }
+        .Welcome {
+            position: relative;
+            left: 350px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(255, 30, 0);
+        }
+        .text {
+            position: relative;
+            left: 15px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .day {
+            position: relative;
+            left: 15px;
+            width: 70px;
+            height: 30px;
+        }
+        .btn {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-radius: 4px;
+            background-color: rgb(0,0,0,0);
+        }
+        .infobox {
+            position: relative;
+            left: 650px;
+            height: 550px;
+            width: 300px;
+            background-color: tan;
+        }
+        .name {
+            position: relative;
+            top: -20px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
         }
     </style>
-    <div class="apps"></div>
-    <div class="wiki"></div> 
+    <script>
+        function showSection(sectionId, element) {
+            let sections = document.querySelectorAll('.section');
+            sections.forEach(sections => sections.classList.add('hidden'));
+
+            const targetSections = document.getElementById(sectionId)
+            if (targetSections) {
+                    targetSections.classList.remove('hidden')
+            };
+        };    
+    </script>
+    <div class="apps">
+        <button class="btn" onclick="showSection('astafuropedia', this)">Astafuropedia</button>
+    </div>
+    <div class="home">
+        <div id="astafuropedia" class="section">
+            <img src="IMG_20260831_145848_055.png" class="rl">
+            <h2 class="Welcome">Добро пожаловать на Astafuropedia!</h2>
+            <h3 class="text">На этой странице собрана вся история Russian Liberty, с которой вы можете ознакомится тут и узнавать новое об чате</h3>
+            <h3 class="text">Фото дня:</h3>
+            <img src="image_2026-08-31_15-27-28.png">
+            <h3 class="text">Страница о чате:</h3>
+            <button class="btn" onclick="showSection('rl',this)">Russian Liberty</button>
+        </div>
+        <div id="rl" class="section hidden">
+            <h1 class="name">Russian Liberty</h1>
+            <div class="infobox"></div>
+        </div>    
+    </div> 
 </body>
 </html>
